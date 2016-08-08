@@ -1,0 +1,75 @@
+COMPILE:
+  mpif90 -fopenmp mpi_omp.f90 -o mpimp
+RUN:
+  mpirun -np 4 ./mpimp
+
+
+NOTE:
+  Remember to use number of steps that is multiplicity of number of processes
+
+
+Statistics of calculating: 4 processes + OpenMP
+
+n = 100
+real  0m0.535s
+user  0m0.350s
+sys 0m0.537s
+
+n=1000
+real  0m0.533s
+user  0m0.353s
+sys 0m0.521s
+
+
+n=10000
+real  0m0.525s
+user  0m0.354s
+sys 0m0.500s
+
+n=1000000
+
+real  0m0.523s
+user  0m0.361s
+sys 0m0.518s
+
+MPI only:
+n=100
+real  0m0.535s
+user  0m0.345s
+sys 0m0.524s
+
+n=1000
+real  0m0.533s
+user  0m0.353s
+sys 0m0.523s
+
+n=10000
+real  0m0.555s
+user  0m0.377s
+sys 0m0.519s
+
+n=1000000
+real  0m0.525s
+user  0m0.357s
+sys 0m0.524s
+
+OpenMP only:
+n=100
+real  0m0.151s
+user  0m0.024s
+sys 0m0.058s
+
+n=1000
+real  0m0.171s
+user  0m0.026s
+sys 0m0.074s
+
+n=10000
+real  0m0.162s
+user  0m0.031s
+sys 0m0.070s
+
+n=1000000
+real  0m0.139s
+user  0m0.018s
+sys 0m0.061s
